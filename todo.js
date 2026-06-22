@@ -5,13 +5,17 @@ function renderTodo(todo) {
   const table = document.getElementById("todo-table");
   const row = table.insertRow(-1);
   const textCell = row.insertCell(0);
-  textCell.innerText = todoText;
+  textCell.innerText = todo.text;
+
+  const dateCell = row.insertCell(1);
+  dateCell.innerText = todo.date;
 }
 
 function addTodo() {
   const todoText = document.getElementById("id-todo").value;
   const todo = {
-    text: todoText
+    text: todoText,
+    date: new Date().toLocaleString("en-IE"),
   };
   todoItems.push(todo);
   renderTodo(todo);
