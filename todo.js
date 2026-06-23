@@ -33,5 +33,21 @@ function uuidv4() {
 }
 
 function deleteTodo(id) {
-  console.log(`Delete item ${id}`);
+  deleteAllTodos();
+  const found = todoItems.findIndex((todo) => todo.id == id);
+  todoItems.splice(found, 1);
+  renderAllTodos();  
+  }
+
+function renderAllTodos() {
+  for (let i = 0; i < todoItems.length; i++) {
+    renderTodo(todoItems[i]);    
+  }
+}
+
+function deleteAllTodos() {
+  let table = document.getElementById("todo-table");
+  for (let i = 0; i < todoItems.length; i++) {
+    table.deleteRow(-i);    
+  }
 }
