@@ -9,6 +9,9 @@ function renderTodo(todo) {
 
   const dateCell = row.insertCell(1);
   dateCell.innerText = todo.date;
+
+  const deleteCell = row.insertCell(2);
+  deleteCell.innerHTML = `<a class="button">delete</a>`
 }
 
 function addTodo() {
